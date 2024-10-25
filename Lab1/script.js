@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalFront = document.getElementById("modal-front");
     const modalBack = document.getElementById("modal-back");
     const closeModal = document.querySelector(".close");
-
-    // Закрыть модальное окно
+    
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Закрыть окно при клике вне модального окна
     window.addEventListener("click", (event) => {
         if (event.target === modal) {
             modal.style.display = "none";
@@ -61,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             container.appendChild(shirtDiv);
 
-            // Обработчик для кнопки Quick View
             quickViewBtn.addEventListener("click", () => {
                 modalName.textContent = shirt.name || "Unnamed T-shirt";
                 modalPrice.textContent = `Price: ${shirt.price || "$0.00"}`;

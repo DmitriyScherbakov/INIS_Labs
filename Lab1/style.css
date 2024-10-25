@@ -35,7 +35,6 @@ p {
     margin-bottom: 10px;
 }
 
-/* Стили для кнопок */
 .button-group {
     display: flex;
     justify-content: space-around;
