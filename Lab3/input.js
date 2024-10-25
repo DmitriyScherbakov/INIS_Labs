@@ -42,15 +42,22 @@ targets.forEach(target => {
     // Обработка событий сенсорного экрана
     target.addEventListener('touchstart', (e) => {
         e.preventDefault(); // Предотвращаем прокрутку страницы
-        if (!isDoubleClicked) {
-            selectElement(e.touches[0]);
-            document.addEventListener('touchmove', dragElementTouch);
-        } else {
+        let currentTime = new Date().getTime();
+        let difference = currentTime - (lastTap || 0);
+
+        if (difference < 300) {
             // Двойное нажатие переводит в режим "следующий за пальцем"
             isFollowingFinger = true;
             selectedElement = target;
+            offsetX = e.touches[0].clientX - selectedElement.offsetLeft;
+            offsetY = e.touches[0].clientY - selectedElement.offsetTop;
             document.addEventListener('touchmove', followFinger);
+        } else {
+            selectElement(e.touches[0]);
+            document.addEventListener('touchmove', dragElementTouch);
         }
+
+        lastTap = currentTime;
     });
 
     target.addEventListener('touchend', (e) => {
@@ -91,14 +98,6 @@ function followFinger(e) {
     }
 }
 
-function releaseElement() {
-    if (selectedElement) {
-        selectedElement = null;
-        document.removeEventListener('mousemove', dragElement);
-        document.removeEventListener('touchmove', dragElementTouch);
-    }
-}
-
 // Обработка нажатия второй палец
 document.addEventListener('touchstart', (e) => {
     if (e.touches.length > 1) {
@@ -112,6 +111,16 @@ document.addEventListener('touchstart', (e) => {
         }
     }
 });
+
+// Освобождение элемента
+function releaseElement() {
+    if (selectedElement) {
+        selectedElement = null;
+        document.removeEventListener('mousemove', dragElement);
+        document.removeEventListener('touchmove', dragElementTouch);
+        document.removeEventListener('touchmove', followFinger);
+    }
+}
 
 // Обработка клавиши Escape
 document.addEventListener('keydown', (e) => {
