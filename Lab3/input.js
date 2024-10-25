@@ -44,11 +44,11 @@ targets.forEach(target => {
 
     // Обработка событий сенсорного экрана
     target.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Предотвращаем прокрутку страницы
+        e.preventDefault(); 
         let currentTime = new Date().getTime();
         let difference = currentTime - lastTap;
 
-        if (difference < 300) { // Двойное нажатие
+        if (difference < 300) { 
             isFollowingFinger = true;
             selectedElement = target;
             offsetX = e.touches[0].clientX - selectedElement.offsetLeft;
@@ -59,7 +59,7 @@ targets.forEach(target => {
             document.addEventListener('touchmove', dragElementTouch);
         }
 
-        lastTap = currentTime; // Обновляем время последнего нажатия
+        lastTap = currentTime; 
     });
 
     target.addEventListener('touchend', (e) => {
