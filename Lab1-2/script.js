@@ -70,6 +70,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 modal.style.display = "block";
             });
 
+            seePageBtn.addEventListener("click", () => {
+                const shirtName = shirt.name ? encodeURIComponent(shirt.name) : "Unnamed";
+                localStorage.setItem('selectedShirt', JSON.stringify(shirt));
+                window.location.href = `details.html?name=${shirtName}`;
+            });
+
         } catch (error) {
             console.error("Error processing shirt:", error);
         }

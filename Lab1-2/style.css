@@ -1,0 +1,298 @@
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.t-shirt-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.t-shirt-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Стили для кнопок */
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.button-group button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+}
+
+.modal-content {
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal img {
+    border-radius: 10px;
+    width: 200px;
+    margin: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.details-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+#shirt-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+#shirt-image {
+    width: 300px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
+}
+
+
+#shirt-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+#shirt-price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+
+.details-container div {
+    margin-bottom: 20px;
+}
+
+
+.details-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+
+#shirt-image {
+    width: 400px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+.details-info {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+
+#shirt-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+#shirt-description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+
+#shirt-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+
+.details-info div {
+    margin-bottom: 20px;
+}
+
+
+#front-btn, #back-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#front-btn:hover, #back-btn:hover {
+    background-color: #0056b3;
+}
+
+
+#color-buttons {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+#color-buttons button {
+    width: 60px; 
+    height: 40px; 
+    border-radius: 5px;
+    border: 2px solid; 
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s, border-color 0.2s; 
+}
+
+
+#color-buttons button[data-color="red"] {
+    background-color: red;
+    border-color: darkred;
+}
+
+#color-buttons button[data-color="blue"] {
+    background-color: blue;
+    border-color: darkblue;
+}
+
+#color-buttons button[data-color="green"] {
+    background-color: green;
+    border-color: darkgreen;
+}
+
+#color-buttons button[data-color="yellow"] {
+    background-color: yellow;
+    border-color: gold;
+}
+
+
+#color-buttons button:hover {
+    transform: scale(1.1); 
+    border-color: black; 
+}
+
+
+
+@media (max-width: 768px) {
+    .details-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    #shirt-image {
+        width: 250px; 
+    }
+
+    #shirt-name {
+        font-size: 28px;
+    }
+
+    #shirt-description {
+        font-size: 14px;
+    }
+
+    #shirt-price {
+        font-size: 18px;
+    }
+
+    #front-btn, #back-btn {
+        padding: 8px 16px;
+    }
+
+    #color-buttons button {
+        width: 35px;
+        height: 35px;
+    }
+}
